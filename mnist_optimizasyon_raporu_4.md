@@ -138,5 +138,25 @@ Tüm optimizasyonların "Laboratuvar Ortamı" (MNIST Test) ve "Gerçek Dünya" (
 
 ---
 
-## 🏆 6. Sonuç
-Bu projede en çarpıcı sonuç, modelin kapalı laboratuvar ortamındaki veri seti ile dış dünyadan, cep telefonu kamerasıyla gelen ham veri arasındaki başarım farkıdır. İlk kurulan `Base` model, laboratuvarda %94 başarı gösterip iyi eğitiyormuş gibi yapsa da ezber yaptığı için gerçek hayatta (%35.79) tamamen başarısız olmuştur. Verilerin OpenCV ile önişlemeden geçirilmesi, veri sızıntısının (Data Leakage) önlenmesi, uygun hata fonksiyonu (MultiMargin) seçimi ve dinamik öğrenme oranları (StepLR) ile MLP modeli başarılı bir şekilde gerçek dünya senaryolarına adapte edilmiş ve %96.30 gerçek dünya başarısına ulaştırılmıştır.
+## 🏆 6. Sonuç ve Dağılım Kayması (Distribution Shift) Analizi
+
+Bu proje kapsamında en çarpıcı bulgu, bir yapay zeka modelinin "Laboratuvar Ortamı" (MNIST) ile "Gerçek Dünya" (Kendi El Yazım) verisi arasındaki başarım farkının ne kadar dramatik olabileceğinin ispatlanmasıdır. Proje boyunca karşılaşılan temel sorunlar ve bu sorunlara getirilen mühendislik çözümleri aşağıda özetlenmiştir:
+
+### ⚠️ A. Dağılım Kayması (Distribution Shift) Probleminin Gözlemi
+* **Sorun:** Hiçbir ön işleme tabi tutulmayan ilk modelimiz (`Base V1`), standart MNIST test verisinde %94.72 doğruluk (accuracy) ile başarılı görünmesine rağmen, dış dünyadan (akıllı telefon kamerası) gelen ham verilerde **%35.79** gibi çok düşük bir başarı göstermiştir.
+* **Analiz:** Bu durum klasik bir "Dağılım Kayması" örneğidir. Model, MNIST'in piksel dizilimlerini ve aydınlatma koşullarını "ezberlemiş" (Overfitting), ancak farklı bir kalem kalınlığı veya kağıt dokusu gördüğünde afallamıştır.
+
+### 🛠️ B. Veri Sızıntısı (Data Leakage) Hatası ve Giderilmesi
+* **Sorun (`V4` Modeli):** Modelin esnekliğini artırmak için eğitim verisine çok agresif dönüştürmeler (Data Augmentation) eklenmiş; ancak PyTorch `Dataset` yapısında `transform` fonksiyonu ayrıştırılmadığı için bu bozulmuş veriler **Validasyon Setine de sızmıştır.** Bu sızıntı sonucunda modelin MNIST başarım oranı aniden %73.06'ya çakılmıştır.
+* **Çözüm (`V5` Modeli):** Sızıntıyı önlemek için eğitim ve test transformları kod seviyesinde birbirinden kesin olarak ayrılmıştır. Validasyon ve Test setleri her türlü sentetik dönüşümden (Rotation, Affine vb.) korunarak tamamen "temiz ve orijinal" bırakılmış; veri artırımı sadece eğitim (Train) setine kısıtlanmıştır. Bu sayede modelin öğrenme stabilitesi geri kazanılmıştır.
+
+### 🧠 C. Optimizatör ve Kayıp Fonksiyonunun Adaptasyonu
+* **Sorun:** Geleneksel `SGD` optimizatörünün oldukça yavaş yakınsadığı (convergence) ve klasik `CrossEntropyLoss` fonksiyonunun gerçek dünya verilerinde karar sınırlarını (decision boundaries) net çizemediği fark edilmiştir.
+* **Çözüm:** Modelin öğrenme ivmesini artırmak için `Adam` optimizatörüne geçilmiş ve karar noktaları arasındaki mesafeyi (margin) maksimize etmeye odaklanan `MultiMarginLoss` kullanılmıştır. Bu değişiklik, özellikle kendi el yazım testlerinde başarıyı %73'ten %80.90'a zıplatmıştır.
+
+### 📉 D. Lokal Minimumlardan Kaçış: Dinamik Öğrenme Oranı (StepLR)
+* **Sorun:** 16 nöronluk dar bir darboğazda (Bottleneck) modelin ağırlık güncellemeleri zamanla durağanlaşmış ve "Optimal Çukur" noktasına inmekte zorlanmıştır.
+* **Çözüm (`V6` Modeli):** Sabit bir öğrenme hızı (0.001) kullanmak yerine, PyTorch'un `StepLR` zamanlayıcısı (Scheduler) sisteme entegre edilmiştir. Her 10 epoch'ta bir öğrenme oranı `0.3` (Gamma) katsayısıyla küçültülerek, modelin en hassas hata noktalarına (Minimum Loss) pürüzsüzce yerleşmesi sağlanmış ve 16 nöronluk kapasiteden maksimum verim alınmıştır.
+
+### 🚀 E. Nihai Çıkarım: Kapasite ve Genel Başarım
+Sadece 16 nöron içeren dar bir MLP mimarisinde bile, **doğru veri ön işlemesi (OpenCV ile kırpma ve Normalizasyon), doğru hata fonksiyonu ve LR Scheduler** kullanıldığında başarımın %35'ten %88.56'ya çıkarılabileceği kanıtlanmıştır. Fiziksel limitlerin tükendiği bu noktada mimari `784 -> 64 -> 64 -> 10` olarak genişletildiğinde ise (`V7` Modeli), model gerçek hayat (Distribution Shift) sorununu tamamen aşarak kendi el yazım verisinde **%96.30** gibi muazzam bir doğruluğa ulaşmış ve ödevin tüm öğrenme çıktılarını başarıyla karşılamıştır.
