@@ -46,7 +46,7 @@ Modeller, kapasite genişletmenin etkisini net görmek adına Final (V7) modelin
 ### 🧠 Ağ Mimarisi Görselleştirmesi
 Modelimizin girdi verisini (784 piksel) nasıl çok dar bir boğaza (16 nöron) sıkıştırıp ardından 10 sınıfa çıkardığını aşağıdaki sembolik mimari tasarımdan görebilirsiniz. Bu dar kapasite, modelin sınırlarını analiz etmemize ve yapılan optimizasyonların (loss, optimizer, scheduler vb.) etkisini net bir şekilde gözlemlememize olanak tanımıştır.
 
-![MLP Mimarisi](results/plots/Figure_1.png)
+![MLP Mimarisi](Figure_1.png)
 ***Görsel 3.1: MNIST veri seti için tasarlanan 16 Nöronlu (Bottleneck) Çok Katmanlı Algılayıcı (MLP) Mimarisi***
 
 ### 📉 A. Temel Model (Base) ve Normalizasyonun Etkisi
