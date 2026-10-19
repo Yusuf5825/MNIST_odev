@@ -1,0 +1,42 @@
+{
+    "mnist_base_v1.pth": {
+        "Test_Loss": 6.39116,
+        "Test_Accuracy": 35.79
+    },
+    "mnist_MultiMarginLossIle_Denendi_v5.pth": {
+        "Test_Loss": 0.71619,
+        "Test_Accuracy": 82.61
+    },
+    "mnist_MultiMarginLoss_v3.pth": {
+        "Test_Loss": 0.77238,
+        "Test_Accuracy": 80.9
+    },
+    "mnist_normalized_v1.pth": {
+        "Test_Loss": 1.18102,
+        "Test_Accuracy": 73.92
+    },
+    "mnist_Scheduler_MultiMarginLoss_Deneme_Gama_azaltıldı_epoch_arttı_v6.pth": {
+        "Test_Loss": 0.59558,
+        "Test_Accuracy": 88.56
+    },
+    "mnist_Scheduler_MultiMarginLoss_Deneme_v6.pth": {
+        "Test_Loss": 0.59381,
+        "Test_Accuracy": 86.71
+    },
+    "mnist_Scheduler_Nöron_sayısı_artırıldı_v7.pth": {
+        "Test_Loss": 0.31675,
+        "Test_Accuracy": 96.3
+    },
+    "mnist_SGD_v2.pth": {
+        "Test_Loss": 0.94491,
+        "Test_Accuracy": 71.44
+    },
+    "mnist_VeriArtirmaMinimize_TestTransformEklendi_v5.pth": {
+        "Test_Loss": 0.73797,
+        "Test_Accuracy": 80.79
+    },
+    "mnist_VeriArtirma_v4.pth": {
+        "Test_Loss": 0.70198,
+        "Test_Accuracy": 77.21
+    }
+}

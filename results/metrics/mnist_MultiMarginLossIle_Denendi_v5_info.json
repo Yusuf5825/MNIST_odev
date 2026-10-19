@@ -1,0 +1,70 @@
+{
+    "Model_Name": "mnist_MultiMarginLossIle_Denendi_v5",
+    "Hyperparameters": {
+        "random_seed": 42,
+        "epochs": 10,
+        "batch_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "Adam (\nParameter Group 0\n    amsgrad: False\n    betas: (0.9, 0.999)\n    capturable: False\n    decoupled_weight_decay: False\n    differentiable: False\n    eps: 1e-08\n    foreach: None\n    fused: None\n    lr: 0.001\n    maximize: False\n    weight_decay: 0\n)",
+        "loss_function": "MultiMarginLoss()",
+        "transform": "Compose(\n    RandomRotation(degrees=[-10.0, 10.0], interpolation=nearest, expand=False, fill=0)\n    ToTensor()\n    Normalize(mean=(0.1307,), std=(0.3081,))\n)",
+        "test_transform": "Compose(\n    ToTensor()\n    Normalize(mean=(0.1307,), std=(0.3081,))\n)",
+        "input_shape": 784,
+        "hidden_units": 16,
+        "output_shape": 10
+    },
+    "Final_Results": {
+        "test_loss": 0.01826376721510605,
+        "test_accuracy": 95.30750798722045
+    },
+    "Epoch_History": {
+        "train_loss_history": [
+            0.08361001348141425,
+            0.03733854102091378,
+            0.03150079304364171,
+            0.028226687379564557,
+            0.026081977523771702,
+            0.02419580074014109,
+            0.022515290291977935,
+            0.02158140364905998,
+            0.021067349536196135,
+            0.02013066941002057
+        ],
+        "train_acc_history": [
+            84.62891874600128,
+            91.70065579014715,
+            92.82429622520793,
+            93.38611644273833,
+            93.69001919385796,
+            94.0858925143954,
+            94.39179462571977,
+            94.55374280230326,
+            94.72168905950096,
+            94.87963851567498
+        ],
+        "val_loss_history": [
+            0.03949490626202747,
+            0.034544938579038044,
+            0.028752452764175117,
+            0.02499319172633355,
+            0.02382385420887571,
+            0.021312142182790858,
+            0.022745639104558128,
+            0.02222575096036166,
+            0.02110752822853845,
+            0.019410639615787473
+        ],
+        "val_acc_history": [
+            91.50359424920129,
+            92.1026357827476,
+            93.30071884984025,
+            94.1094249201278,
+            94.43889776357827,
+            94.53873801916933,
+            94.79832268370608,
+            94.65854632587859,
+            95.08785942492013,
+            95.00798722044729
+        ]
+    }
+}

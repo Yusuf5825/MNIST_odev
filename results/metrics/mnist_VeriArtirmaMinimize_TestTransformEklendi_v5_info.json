@@ -1,0 +1,70 @@
+{
+    "Model_Name": "mnist_VeriArtirmaMinimize_TestTransformEklendi_v5",
+    "Hyperparameters": {
+        "random_seed": 42,
+        "epochs": 10,
+        "batch_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "Adam (\nParameter Group 0\n    amsgrad: False\n    betas: (0.9, 0.999)\n    capturable: False\n    decoupled_weight_decay: False\n    differentiable: False\n    eps: 1e-08\n    foreach: None\n    fused: None\n    lr: 0.001\n    maximize: False\n    weight_decay: 0\n)",
+        "loss_function": "CrossEntropyLoss()",
+        "transform": "Compose(\n    RandomRotation(degrees=[-10.0, 10.0], interpolation=nearest, expand=False, fill=0)\n    ToTensor()\n    Normalize(mean=(0.1307,), std=(0.3081,))\n)",
+        "test_transform": "Compose(\n    ToTensor()\n    Normalize(mean=(0.1307,), std=(0.3081,))\n)",
+        "input_shape": 784,
+        "hidden_units": 16,
+        "output_shape": 10
+    },
+    "Final_Results": {
+        "test_loss": 0.15515277686881454,
+        "test_accuracy": 95.14776357827476
+    },
+    "Epoch_History": {
+        "train_loss_history": [
+            0.46593144867314185,
+            0.2663921401409941,
+            0.2368327639424984,
+            0.22087490143193622,
+            0.2098093860587838,
+            0.19846177971203854,
+            0.1880683395403818,
+            0.18103722602567532,
+            0.17699683846349298,
+            0.17214570679986088
+        ],
+        "train_acc_history": [
+            85.73256557901472,
+            92.00455854126679,
+            92.95025591810621,
+            93.33613243761997,
+            93.65403071017275,
+            94.04590531030071,
+            94.31381957773513,
+            94.58373320537429,
+            94.63571657069738,
+            94.81765834932821
+        ],
+        "val_loss_history": [
+            0.27217280755218226,
+            0.2343141174378296,
+            0.21401133228795596,
+            0.19455430182976463,
+            0.19472205273200052,
+            0.1822866623054821,
+            0.17433870258553627,
+            0.17173623457884254,
+            0.17865746976516117,
+            0.16805608655971746
+        ],
+        "val_acc_history": [
+            91.72324281150159,
+            93.23083067092652,
+            93.3905750798722,
+            94.17931309904154,
+            94.00958466453675,
+            94.18929712460064,
+            94.77835463258786,
+            94.88817891373802,
+            94.89816293929712,
+            94.68849840255591
+        ]
+    }
+}

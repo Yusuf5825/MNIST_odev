@@ -1,0 +1,69 @@
+{
+    "Model_Name": "mnist_VeriArtirma_v4",
+    "Hyperparameters": {
+        "random_seed": 42,
+        "epochs": 10,
+        "batch_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "Adam (\nParameter Group 0\n    amsgrad: False\n    betas: (0.9, 0.999)\n    capturable: False\n    decoupled_weight_decay: False\n    differentiable: False\n    eps: 1e-08\n    foreach: None\n    fused: None\n    lr: 0.001\n    maximize: False\n    weight_decay: 0\n)",
+        "loss_function": "CrossEntropyLoss()",
+        "transform": "Compose(\n    RandomRotation(degrees=[-10.0, 10.0], interpolation=nearest, expand=False, fill=0)\n    TrivialAugmentWide(num_magnitude_bins=31, interpolation=InterpolationMode.NEAREST, fill=None)\n    ToTensor()\n    Normalize(mean=(0.1307,), std=(0.3081,))\n)",
+        "input_shape": 784,
+        "hidden_units": 16,
+        "output_shape": 10
+    },
+    "Final_Results": {
+        "test_loss": 0.8132750248185362,
+        "test_accuracy": 73.06309904153355
+    },
+    "Epoch_History": {
+        "train_loss_history": [
+            1.1944303599329842,
+            0.9811102574975995,
+            0.9277071728778054,
+            0.8945402198507476,
+            0.8720087792273904,
+            0.858615877246216,
+            0.8404419994552549,
+            0.8454567122672967,
+            0.8297869411517014,
+            0.8202863851763542
+        ],
+        "train_acc_history": [
+            61.65427063339731,
+            68.60404670505439,
+            70.25351887396033,
+            70.82733525271912,
+            71.7650351887396,
+            71.75703774792066,
+            72.46481126039667,
+            71.99296225207934,
+            72.74872040946897,
+            72.84468969929623
+        ],
+        "val_loss_history": [
+            1.0287601402201973,
+            0.964353508937854,
+            0.9324610155230513,
+            0.9005879289425981,
+            0.8685578389670521,
+            0.8641303532991927,
+            0.8208271930583368,
+            0.8585407539678458,
+            0.8248011370817312,
+            0.8230774753962081
+        ],
+        "val_acc_history": [
+            67.06269968051119,
+            69.34904153354633,
+            69.73841853035144,
+            70.7567891373802,
+            71.37579872204473,
+            71.45567092651757,
+            72.93330670926518,
+            71.61541533546325,
+            72.56389776357827,
+            73.24281150159744
+        ]
+    }
+}

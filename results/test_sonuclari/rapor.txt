@@ -1,0 +1,42 @@
+=== KENDİ EL YAZISI TEST VERİSİ SONUÇLARI ===
+
+Model Adı: mnist_base_v1.pth
+Test Loss: 6.39116
+Accuracy: 35.79%
+----------------------------------------
+Model Adı: mnist_MultiMarginLossIle_Denendi_v5.pth
+Test Loss: 0.71619
+Accuracy: 82.61%
+----------------------------------------
+Model Adı: mnist_MultiMarginLoss_v3.pth
+Test Loss: 0.77238
+Accuracy: 80.90%
+----------------------------------------
+Model Adı: mnist_normalized_v1.pth
+Test Loss: 1.18102
+Accuracy: 73.92%
+----------------------------------------
+Model Adı: mnist_Scheduler_MultiMarginLoss_Deneme_Gama_azaltıldı_epoch_arttı_v6.pth
+Test Loss: 0.59558
+Accuracy: 88.56%
+----------------------------------------
+Model Adı: mnist_Scheduler_MultiMarginLoss_Deneme_v6.pth
+Test Loss: 0.59381
+Accuracy: 86.71%
+----------------------------------------
+Model Adı: mnist_Scheduler_Nöron_sayısı_artırıldı_v7.pth
+Test Loss: 0.31675
+Accuracy: 96.30%
+----------------------------------------
+Model Adı: mnist_SGD_v2.pth
+Test Loss: 0.94491
+Accuracy: 71.44%
+----------------------------------------
+Model Adı: mnist_VeriArtirmaMinimize_TestTransformEklendi_v5.pth
+Test Loss: 0.73797
+Accuracy: 80.79%
+----------------------------------------
+Model Adı: mnist_VeriArtirma_v4.pth
+Test Loss: 0.70198
+Accuracy: 77.21%
+----------------------------------------
