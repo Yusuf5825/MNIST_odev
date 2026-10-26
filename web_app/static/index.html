@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNIST AI | El Yazısı Analizi</title>
+    <!-- Harici CSS dosyamız -->
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-container">
+        <header>
+            <div class="logo-box">
+                <span class="ai-badge">V7 Model</span>
+                <h1>El Yazısı Tanıma Ağı</h1>
+            </div>
+            <p class="subtitle">Oluşturduğumuz 64 Nöronlu MLP Mimarisi ile el yazısı rakamlarınızı (okul numarası vb.) dijital metne çevirin.</p>
+        </header>
+
+        <div class="upload-section" id="drop-zone">
+            <div class="drop-content" id="drop-content">
+                <div class="upload-icon">📄</div>
+                <h3>Fotoğrafı Buraya Sürükleyin</h3>
+                <p>veya</p>
+                <label for="imageUpload" class="browse-btn">Bilgisayardan Seç</label>
+                <input type="file" id="imageUpload" accept="image/*">
+            </div>
+            <img id="preview" alt="Seçilen Fotoğraf Önizlemesi">
+        </div>
+
+        <button class="predict-btn" id="predictBtn">
+            <span class="btn-text">Yapay Zekayı Çalıştır 🚀</span>
+            <div class="spinner" id="spinner"></div>
+        </button>
+
+        <div class="result-container" id="resultBox">
+            <p class="result-label">MLP Tahmin Sonucu:</p>
+            <div class="number-display" id="resultNumber"></div>
+        </div>
+    </div>
+
+    <!-- Harici JS dosyamız -->
+    <script src="/static/script.js"></script>
+</body>
+</html>
