@@ -139,5 +139,5 @@ Kullanıcıların sisteme yüklediği fotoğraflardaki arka plan gürültülerin
 1. **İki Aşamalı (Two-Step) Kırpma:** Sistem önce tüm yazıyı tek bir blok (Büyük Kırmızı Kutu) olarak tespit edip arkaplandan soyutlar, ardından bu blok içindeki rakamları tek tek ayıklar.
 2. **Kütle Merkezi (Center of Mass) Hizalaması:** Yann LeCun'un orijinal MNIST veri setini oluştururken kullandığı fiziksel kütle merkezi formülü (`cv2.moments`) koda entegre edilmiştir. Bu sayede kullanıcı rakamları nasıl yazarsa yazsın, rakamların ağırlık merkezi 28x28 piksel tuvalin tam ortasına (14, 14 koordinatına) matematiksel olarak sabitlenmektedir.
 
-![Web Arayüzü Tahmin Sonucu](Ekran%20görüntüsü%202026-10-26%20144827.jpg)
+![Web Arayüzü Tahmin Sonucu](school_number.jpeg)
 ***Görsel 6.1: OpenCV destekli görüntü işleme algoritmaları ve eğitilen 64 Nöronlu V7 modelinin FastAPI web arayüzünde okul numarasını gerçek zamanlı tahmin etmesi.***
